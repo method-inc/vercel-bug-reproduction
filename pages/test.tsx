@@ -1,6 +1,6 @@
 
 
-export default function Index() {
+export default function Test() {
     return (
       <div>
         Some page router context
