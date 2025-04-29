@@ -1,6 +1,6 @@
 export const dynamicParams = false;
 
-export const vehicles = [
+const vehicles = [
   { make: "Nissan", model: "Altima" },
   { make: "Toyota", model: "Camry" },
   { make: "Honda", model: "Civic" },
@@ -17,17 +17,19 @@ export function generateStaticParams() {
   }));
 }
 
-export default function Home(
+export default async function Home(
   {
     params,
   }: {
-    params: {
+    params: Promise<{
       make: string;
       model: string;
-    };
+    }>;
   }
 ) {
+  const {make, model} = await params;
+
   return (
-    <div>{params.make} - {params.model}</div>
+    <div>{make} - {model}</div>
   );
 }
