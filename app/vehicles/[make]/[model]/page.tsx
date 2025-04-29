@@ -17,17 +17,17 @@ export function generateStaticParams() {
   }));
 }
 
-export default async function Home(
+export default function Home(
   {
     params,
   }: {
-    params: Promise<{
+    params: {
       make: string;
       model: string;
-    }>;
+    };
   }
 ) {
-  const {make, model} = await params;
+  const {make, model} = params;
 
   return (
     <div>{make} - {model}</div>
